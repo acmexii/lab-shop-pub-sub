@@ -45,19 +45,15 @@ public class Inventory  {
         /** Example 1:  new item 
         Inventory inventory = new Inventory();
         repository().save(inventory);
-
         */
 
-        /** Example 2:  finding and process
-        
-        repository().findById(orderPlaced.get???()).ifPresent(inventory->{
-            
-            inventory // do something
+        /** Example 2:  finding and process  */
+        repository().findById(Long.valueOf(orderPlaced.getProductId())).ifPresent(inventory->{
+            inventory.setStock(inventory.getStock() - orderPlaced.getQty()); // do something
             repository().save(inventory);
-
-
          });
-        */
+      
+      
 
         
     }
